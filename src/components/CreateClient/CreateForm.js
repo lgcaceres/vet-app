@@ -1,16 +1,16 @@
 import React from 'react'
 
-const CreateForm = (props)=> {
+const CreateForm = ({data, handleChange, addClient})=> {
 
 
 
     return(
-        <form >
+        <form onSubmit={addClient}>
             <label>Nombre
-                <input type='text' value={props.data.nameClient} onChange={props.handleChange} name='nameClient'/>
+                <input type='text' value={data.nameClient} onChange={handleChange} name='nameClient'/>
             </label>
             <label>Edad
-                <input type='number'value={props.data.ageClient} onChange={props.handleChange} name='ageClient'/>
+                <input type='number' value={data.ageClient} onChange={handleChange} name='ageClient'/>
             </label>
             <input type='submit' value='Guardar'/>
 
