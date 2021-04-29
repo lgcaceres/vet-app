@@ -1,9 +1,24 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
+import firebaseDb from '/home/luis/Desktop/evelin/vet-app/src/firebase.js'
 
 const SearchClient = () => {
+    
+    const [idClients,setIdClients] = useState({});
+
+    useEffect(()=> {
+        firebaseDb.child('clients').on('value',snapshot=> {
+            if(snapshot.val()!= null)
+            setIdClients({...snapshot.val()})
+        })
+    },[]);
+
+
+
     return(
         <div>
-            Search for a client
+            {Object.keys(idClients).map( id => (
+                <p>{idClients[id].nameClient}</p>
+            ))}
         </div>
     )
 }
