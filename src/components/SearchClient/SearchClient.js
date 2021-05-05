@@ -1,6 +1,9 @@
 import React,{useState, useEffect} from 'react';
 import firebaseDb from '/home/luis/Desktop/evelin/vet-app/src/firebase.js'
 
+import {Link} from 'react-router-dom';
+
+
 const SearchClient = () => {
     
     const [idClients,setIdClients] = useState({});
@@ -36,18 +39,7 @@ const SearchClient = () => {
         setSelectedIds(selected);
 
         console.log(selected);
-
-
-                
     }
-
-    /*.toLowerCase();
-            
-            if()
-            return id
-        }*/
-
-
 
     return(
         <div>
@@ -56,7 +48,12 @@ const SearchClient = () => {
                 <button onClick={search}>Search</button>
             </div>
             <div>
-                {selectedIds.map( id => (<p>{idClients[id].nameClient}</p>))}
+                {selectedIds.map( id => (
+                <div>
+                    <Link to={`/searchForm/${id}`}>
+                    <p>{idClients[id].nameClient}</p>
+                    </Link>
+                </div> ))}
             </div>
         </div>
     )

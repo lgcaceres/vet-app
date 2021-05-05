@@ -11,6 +11,7 @@ import './App.css';
 
 import CreateClient from './components/CreateClient/CreateClient'
 import SearchClient from './components/SearchClient/SearchClient'
+import SearchForm from './components/SearchClient/SearchForm';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Switch>
           <Route path ="/CreateClient" component={CreateClient} />
           <Route path ="/SearchClient" component={SearchClient} />
+          <Route path ="/searchForm/:id" component={SearchForm} />
         </Switch>
       </div>
     </Router>
