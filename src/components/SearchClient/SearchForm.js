@@ -8,7 +8,7 @@ const SearchForm = () => {
     const [idClients,setIdClients] = useState({});
     const [clientInfo,setClientInfo] = useState({
         name : "",
-        age: 0,
+        age: "",
     });
     const {id} = useParams();
 
@@ -18,24 +18,46 @@ const SearchForm = () => {
             if(snapshot.val()!= null)
             setIdClients({...snapshot.val()})
         })
-        
+
     },[]);
 
     const onClick = () => {
-        console.log(idClients[id].nameClient);
+        setClientInfo( prevState => ({
+            ...prevState,
+            name:idClients[id].nameClient,
+            age: idClients[id].ageClient,
+        }))
     }
 
-    const onChange = () => {
 
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+            setClientInfo(prevState => ({
+                ...prevState,
+                [name]: value
+            }));
     }
 
-
+    const update = ()=> {
+        firebaseDb.child(`clients/${id}`).set({
+            nameClient : clientInfo.name,
+            ageClient : clientInfo.age,
+        },
+        err => {
+            if(err)
+                console.log(err)
+        })
+        prompt("Updated")
+    }
 
 
     return (
         <div>
-            <input type="text" value="name" onChange={onChange}/>
+            <input type="text" value={clientInfo.name} onChange={handleChange} name="name"/>
+            <input type="text" value={clientInfo.age} onChange={handleChange} name="age"/>
             <button  onClick= {onClick}>Click </button>
+            <button onClick= {update}>Update</button>
         </div> 
     );
 }
