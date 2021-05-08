@@ -5,30 +5,17 @@ import firebaseDb from '/home/luis/Desktop/evelin/vet-app/src/firebase.js'
 
 const SearchForm = () => {
 
-    const [idClients,setIdClients] = useState({});
-    const [clientInfo,setClientInfo] = useState({
-        name : "",
-        age: "",
-    });
+    const [clientInfo,setClientInfo] = useState({});
     const {id} = useParams();
 
-    //Load snapshot
+
     useEffect(()=> {
-        firebaseDb.child('clients').on('value',snapshot=> {
+        firebaseDb.child(`clients/${id}`).on('value',snapshot=> {
             if(snapshot.val()!= null)
-            setIdClients({...snapshot.val()})
+            setClientInfo({...snapshot.val()})  
         })
 
     },[]);
-
-    const onClick = () => {
-        setClientInfo( prevState => ({
-            ...prevState,
-            name:idClients[id].nameClient,
-            age: idClients[id].ageClient,
-        }))
-    }
-
 
 
     const handleChange = (e) => {
@@ -41,23 +28,24 @@ const SearchForm = () => {
 
     const update = ()=> {
         firebaseDb.child(`clients/${id}`).set({
-            nameClient : clientInfo.name,
-            ageClient : clientInfo.age,
+            nameClient : clientInfo.nameClient,
+            ageClient : clientInfo.ageClient,
         },
         err => {
             if(err)
                 console.log(err)
         })
-        prompt("Updated")
+        
     }
 
 
     return (
         <div>
-            <input type="text" value={clientInfo.name} onChange={handleChange} name="name"/>
-            <input type="text" value={clientInfo.age} onChange={handleChange} name="age"/>
-            <button  onClick= {onClick}>Click </button>
-            <button onClick= {update}>Update</button>
+            <input type="text" value={clientInfo.nameClient} onChange={handleChange} name="nameClient"/>
+            <input type="text" value={clientInfo.ageClient} onChange={handleChange} name="ageClient"/>
+            <button onClick={update}>Save</button>
+            
+            
         </div> 
     );
 }
