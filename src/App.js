@@ -12,6 +12,7 @@ import './App.css';
 import CreateClient from './components/CreateClient/CreateClient'
 import SearchClient from './components/SearchClient/SearchClient'
 import SearchForm from './components/SearchClient/SearchForm';
+import CreateAttentionCard from './components/SearchClient/CreateAttentionCard'
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path ="/CreateClient" component={CreateClient} />
           <Route path ="/SearchClient" component={SearchClient} />
           <Route path ="/searchForm/:id" component={SearchForm} />
+          <Route path ="/createCard/:id" component={CreateAttentionCard} />
         </Switch>
       </div>
     </Router>

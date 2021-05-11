@@ -53,6 +53,9 @@ const SearchClient = () => {
                     <Link to={`/searchForm/${id}`}>
                     <p>{idClients[id].nameClient}</p>
                     </Link>
+                    <Link to={`/createCard/${id}`}>
+                    <p>+</p>
+                    </Link>
                 </div> ))}
             </div>
         </div>
