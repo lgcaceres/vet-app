@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import AttentionCard from './AttentionCard'
 
 import firebaseDb from '/home/luis/Desktop/evelin/vet-app/src/firebase.js'
 
@@ -10,10 +11,6 @@ function CreateAttentionCard() {
         action:""
 
     })
-
-    /*useEffect(() => {
-        firebaseDb.child('')
-    })*/
 
     const {id} = useParams();
 
@@ -47,11 +44,7 @@ function CreateAttentionCard() {
     }
 
     return (
-        <div>
-            <input type="text" name="namePet" value={cardInfo.namePet} onChange={handleChange}/>
-            <textarea name="action" value={cardInfo.action} onChange={handleChange} />
-            <button onClick={saveCard}>Save</button>
-        </div>
+        <AttentionCard cardInfo={cardInfo} handleChange={handleChange} saveCard={saveCard}/>
     );
 }
 

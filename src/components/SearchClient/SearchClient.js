@@ -56,6 +56,9 @@ const SearchClient = () => {
                     <Link to={`/createCard/${id}`}>
                     <p>+</p>
                     </Link>
+                    <Link to={`/searchCard/${id}`}>
+                    <p>Search Card</p>
+                    </Link>
                 </div> ))}
             </div>
         </div>

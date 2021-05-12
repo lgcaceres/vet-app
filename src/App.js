@@ -13,6 +13,7 @@ import CreateClient from './components/CreateClient/CreateClient'
 import SearchClient from './components/SearchClient/SearchClient'
 import SearchForm from './components/SearchClient/SearchForm';
 import CreateAttentionCard from './components/SearchClient/CreateAttentionCard'
+import SearchAttentionCard from './components/SearchClient/SearchAttentionCard'
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path ="/SearchClient" component={SearchClient} />
           <Route path ="/searchForm/:id" component={SearchForm} />
           <Route path ="/createCard/:id" component={CreateAttentionCard} />
+          <Route path ="/searchCard/:id" component={SearchAttentionCard} />
         </Switch>
       </div>
     </Router>
