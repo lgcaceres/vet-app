@@ -1,0 +1,20 @@
+.container  {
+    display: flex;
+}
+
+.search  {
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+}
+
+.result {
+    background-color: greenyellow;
+    margin :auto ;
+}
+
+.card {
+    margin : 10px;
+}
+
+

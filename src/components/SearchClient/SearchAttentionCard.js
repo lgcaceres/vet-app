@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { Route, Switch, useParams, useRouteMatch } from 'react-router';
+import { Link } from 'react-router-dom';
 
 import firebaseDb from '/home/luis/Desktop/evelin/vet-app/src/firebase.js'
+import EditCard from './EditCard'
 
-function SearchAttentionCard() {
+import './SearchAttentionCard.css'
+
+const SearchAttentionCard= ()=> {
 
     const {id} = useParams();
+    const {path, url} = useRouteMatch();
 
     const [cards, setCards] = useState ({});
-
-    let result = [];
 
     useEffect(()=> {
         firebaseDb.child(`cards/${id}`).on('value',snapshot => {
@@ -22,19 +25,24 @@ function SearchAttentionCard() {
         })
     },[]);
 
-    const actionButton = ()=> {
-
-        result= Object.keys(cards);
-        console.log(result);
-
-    }
 
     return (
-        <div>
-          <button onClick={actionButton} >Clikc</button>  
-          {Object.keys(cards).map( key => ( <div>
-                {cards[key].namePet}
-          </div> ))}
+        <div className="container">
+            <div className="search">
+                {Object.keys(cards).map( key => ( 
+                <div className="card">
+                        {cards[key].namePet}
+                        <Link to={{pathname:`${url}/${key}`,state:{client:id}}}>Edit</Link>
+                </div> ))}    
+            </div>  
+          
+
+            <div className="result">
+                <Switch>
+                <Route path={`${path}/:idCard`} component={EditCard}/>
+                </Switch>
+            </div>
+          
         </div>
     );
 }
