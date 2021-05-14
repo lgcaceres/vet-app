@@ -1,72 +1,54 @@
-import React  from 'react';
+import React, { useState }  from 'react';
 import firebaseDb from '/home/luis/Desktop/evelin/vet-app/src/firebase.js'
 
 import CreateForm from './CreateForm'
 
-class CreateClient extends React.Component{
+const CreateClient = ()=> {
 
-    constructor(props){
-        super();
-        this.state = {
-            idClients:[],
-            nameClient:'',
-            ageClient:0
-        }
-        this.handleChange = this.handleChange.bind(this);
-        this.addClient = this.addClient.bind(this);
-        this.clear = this.clear.bind(this);
-    }
-
-    componentDidMount(){
-        firebaseDb.child('clients').on('value',querySnapShot => {
-                 let data = querySnapShot.val() ? querySnapShot.val() : {};
-                 let keys = {...data};
-                 this.setState({idClients:keys,});   
-            
-        })
-
-    }
-
-    clear() {
+    
+    const [clientInfo, setClientInfo] = useState({
+        nameClient:'',
+        dni:'',
+        phone:'',
+        namePet:'',
+        agePet:'',
+        species:'',
+        sexPet:'',
+        breed:'',
+    })
+    
+    const clear= ()=> {
         firebaseDb.child('clients').remove();
     }
 
-    handleChange(e) {
+    const handleChange = (e)=> {
         const {value , name} = e.target;
-
-        this.setState ({[name]:value});
+        setClientInfo(prevState => ({
+            ...prevState,
+            [name]:value
+        }));
     }
 
-    addClient(e) {
-        e.preventDefault();
+    const addClient= (e)=> {
+        //e.preventDefault();
         
+        firebaseDb.child('clients').push(clientInfo,
+        err => {
+            if(err){
+                alert("Data could not be saved"+err);
+            } else {
+                alert("Data saved successfully")
+            }})
         
-        firebaseDb.child('clients').push({
-            nameClient : this.state.nameClient,
-            ageClient : this.state.ageClient,
-        },
-            
-            err => {
-                console.log(err);
-            })
-        this.setState({nameClient:'',
-                        ageClient:0});
     }
 
 
-    render() {
-        let keys = Object.keys(this.state.idClients);
-        return(
+    return(
             <div>
-                <CreateForm data={this.state} handleChange ={this.handleChange} addClient={this.addClient}/>
-                {keys.map(id => (<p>{this.state.idClients[id].nameClient}</p>))}
-                <button onClick={this.clear}>Erase</button>
+                <CreateForm data={clientInfo} handleChange ={handleChange} addClient={addClient}/>
+                <button onClick={clear}>Erase</button>
             </div>
-            
-            
-        )
-    }
-    
+    )
 }
 
 export default CreateClient;

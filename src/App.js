@@ -21,14 +21,15 @@ function App() {
     <Router>
 
       <div>
-        <ul>
-          <li>
-            <Link to="/CreateClient">Crear Usuario</Link>
-          </li>
-          <li>
-            <Link to="/SearchClient">Buscar Usuario</Link>
-          </li>
-        </ul> 
+
+        <header>
+          <h1>Vet-App</h1>
+          <nav className="nav-section">
+            <li><Link to="/CreateClient">Crear Usuario</Link></li>
+            <li><Link to="/SearchClient">Buscar Usuario</Link></li>
+          </nav>
+          
+        </header> 
         <hr />
 
         <Switch>
