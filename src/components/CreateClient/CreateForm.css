@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+
+
+form {
+    font-family: 'Poppins', sans-serif;
+    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1em;
+    grid-template-rows: 60% 10%;
+    margin:3rem auto;
+    max-width: 30%;
+    min-width: 500px;
+    min-height: 300px;
+    max-height: 40%;
+    background-color: rgb(163, 234, 236);
+}
+input{
+    height: 1.5em;
+    margin-top: .3em;
+    border-radius: 0%;
+    border-style: none;
+    background-color: white;
+}
+label{
+    margin-top: .2em;
+}
+
+.client-data{
+    display: flex;
+    flex-direction: column;
+
+}
+.pet-data{
+    display: flex;
+    flex-direction: column;
+}
+
+.btn{
+    font-family: inherit;
+    height: 2em;
+    width: 100px;
+    border-radius: 25px;
+}

@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
 header {
+  background-color: lightblue;
+  font-family: 'Poppins',sans-serif;
   display: flex;
-  background-color: aqua;
   justify-content: space-between;
 }
  
@@ -9,7 +11,6 @@ header h1 {
 }
 
 .nav-section {
-  background-color: brown;
   display: flex;
   justify-content: space-between;
   text-decoration: none;
@@ -18,4 +19,7 @@ header h1 {
 nav li{
   list-style: none;
   margin: auto 20px;
+}
+a{
+  text-decoration: none;
 }
