@@ -1,22 +1,50 @@
 .search-section {
-    background-color: rgb(163, 234, 236);
-    margin: 20px;
+    background-color:rgb(163, 234, 236);
+    border-bottom: thick double;
+    font-family: 'Poppins',sans-serif;
+    color: black;
+}
+.search-section-title{
+    margin :10px ;
+    font-weight: bold;
+    font-size: 1.3em;
 }
 
 input{
-    margin: 10px;
+    margin: 5px 15px 15px 10px;
+}
+
+button{
+    font-family: inherit;
 }
 
 .result-section {
+    width: 27em;
     margin: 20px;
-    background-color: whitesmoke;
+    background-color: #43A6C6;
 }
 
 .result-item{
     display: flex;
     margin: .5em;
+    border-bottom: 1px solid ;
+    width: 25em;
+    height: 1.8em;
 
 }
 a{
     margin-left: .5em;
+    color: inherit;
+    
+}
+
+.result-item-name{
+    width: 20em;
+    font-size: 1.2em;
+}
+img{
+    filter: brightness(1.1);
+    mix-blend-mode: multiply;
+    width: 1.7em;
+    height: 1.7em;
 }

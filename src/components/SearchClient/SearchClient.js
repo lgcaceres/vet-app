@@ -3,6 +3,8 @@ import firebaseDb from '/home/luis/Desktop/evelin/vet-app/src/firebase.js'
 
 import {Link} from 'react-router-dom';
 import './SearchClient.css'
+import addCard from'/home/luis/Desktop/evelin/vet-app/src/images/add.png'
+import searchCard from'/home/luis/Desktop/evelin/vet-app/src/images/search.png'
 
 
 const SearchClient = () => {
@@ -44,20 +46,21 @@ const SearchClient = () => {
     return(
         <div>
             <div className="search-section">
+                <p className="search-section-title">Buscar por el nombre</p>
                 <input type='text' value={searchWord} onChange={handleChange} />
                 <button onClick={search}>Search</button>
             </div>
             <div className="result-section">
                 {selectedIds.map( id => (
                 <div className="result-item">
-                    <Link to={`/searchForm/${id}`}>
+                    <Link className="result-item-name" to={`/searchForm/${id}`}>
                     {idClients[id].nameClient}
                     </Link>
                     <Link to={`/createCard/${id}`}>
-                    +
+                    <img src={addCard}/>
                     </Link>
                     <Link to={`/searchCard/${id}`}>
-                    Search Card
+                    <img src={searchCard}/>
                     </Link>
                 </div> ))}
             </div>
