@@ -7,9 +7,18 @@ import firebaseDb from '/home/luis/Desktop/evelin/vet-app/src/firebase.js'
 function CreateAttentionCard() {
 
     const [cardInfo, setCardInfo] = useState ({
-        namePet : "",
-        action:""
-
+        date : "",
+        nameClient:"",
+        namePet:"",
+        temperature:"",
+        weight:"",
+        fc:"",//frecuencia cardiaca
+        fr:"",//frecuencia respiratoria
+        pulse:"",
+        anamnesis:"",
+        diagnostico:"",
+        tratamiento:"",
+        vacunas:""
     })
 
     const {id} = useParams();
