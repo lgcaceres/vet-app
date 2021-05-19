@@ -2,6 +2,7 @@ import React,{useState, useEffect} from 'react';
 import firebaseDb from '/home/luis/Desktop/evelin/vet-app/src/firebase.js'
 
 import {Link} from 'react-router-dom';
+import './SearchClient.css'
 
 
 const SearchClient = () => {
@@ -21,7 +22,6 @@ const SearchClient = () => {
 
     const handleChange= (e) => {
         const {value} = e.target;
-        console.log(value);
         setSearchWord(value);
 
     }
@@ -43,21 +43,21 @@ const SearchClient = () => {
 
     return(
         <div>
-            <div>
+            <div className="search-section">
                 <input type='text' value={searchWord} onChange={handleChange} />
                 <button onClick={search}>Search</button>
             </div>
-            <div>
+            <div className="result-section">
                 {selectedIds.map( id => (
-                <div>
+                <div className="result-item">
                     <Link to={`/searchForm/${id}`}>
-                    <p>{idClients[id].nameClient}</p>
+                    {idClients[id].nameClient}
                     </Link>
                     <Link to={`/createCard/${id}`}>
-                    <p>+</p>
+                    +
                     </Link>
                     <Link to={`/searchCard/${id}`}>
-                    <p>Search Card</p>
+                    Search Card
                     </Link>
                 </div> ))}
             </div>

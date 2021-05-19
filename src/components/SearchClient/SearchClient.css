@@ -1,0 +1,22 @@
+.search-section {
+    background-color: rgb(163, 234, 236);
+    margin: 20px;
+}
+
+input{
+    margin: 10px;
+}
+
+.result-section {
+    margin: 20px;
+    background-color: whitesmoke;
+}
+
+.result-item{
+    display: flex;
+    margin: .5em;
+
+}
+a{
+    margin-left: .5em;
+}
