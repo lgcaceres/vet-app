@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import AttentionCard from './AttentionCard'
 
@@ -23,6 +23,24 @@ function CreateAttentionCard() {
 
     const {id} = useParams();
 
+    useEffect(()=>{
+        let data;
+        firebaseDb.child(`clients/${id}`).on('value',snapshot => {
+            if(snapshot.val()!=null){
+                data= snapshot.val();
+            }
+            else {
+                alert("something is wrong")
+            }
+            console.log(data.nameClient);
+            setCardInfo(prevState => ({
+                ...prevState,
+                nameClient:data.nameClient,
+                namePet:data.namePet
+            }));
+        })
+    },[])
+
 
     const handleChange = (e)=> {
         const {name , value} = e.target;
@@ -44,11 +62,11 @@ function CreateAttentionCard() {
                 alert("Data saved successfully")
             }})
         
-        setCardInfo(prevState => ({
-            ...prevState,
-            namePet:"",
-            action:""
-        }))
+        // setCardInfo(prevState => ({
+        //     ...prevState,
+        //     namePet:"",
+        //     action:""
+        // }))
 
     }
 

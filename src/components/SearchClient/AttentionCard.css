@@ -1,0 +1,17 @@
+.attention-card {
+    font-family: 'Poppins',sans-serif;
+    background-color: rgb(163, 234, 236);
+    width: 35em;
+}
+
+.general-info {
+    display: flex;
+    justify-content: space-around;
+}
+
+input{
+    width: 2.5em;
+}
+.card-date{
+    width: initial;
+}
