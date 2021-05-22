@@ -9,30 +9,32 @@ function AttentionCard({cardInfo, handleChange, saveCard}) {
             <div className="card-name-client">{cardInfo.nameClient}</div>
             <div className="card-name-pet">{cardInfo.namePet}</div>
         </div>
-        <div className="general-info card-info">
+        <div className="card-info">
             <label for="temperature">Tº</label>
-            <input id="temperature" value={cardInfo.temperature}/>
+            <input id="temperature" name="temperature" value={cardInfo.temperature} onChange={handleChange}/>
             <label for="weight">Peso</label>
-            <input id="weight" value={cardInfo.temperature}/>
+            <input id="weight" name="weight" value={cardInfo.weight} onChange={handleChange}/>
             <label for="fc">FC</label>
-            <input id="fc" value={cardInfo.temperature}/>
+            <input id="fc" name="fc" value={cardInfo.fc} onChange={handleChange}/>
             <label for="fr">FR</label>
-            <input id="fr" value={cardInfo.temperature}/>
+            <input id="fr" name="fr" value={cardInfo.fr} onChange={handleChange}/>
             <label for="pulse">Pulso</label>
-            <input id="pulse" value={cardInfo.temperature}/>
+            <input id="pulse" name="pulse" value={cardInfo.pulse} onChange={handleChange}/>
         </div>
-        <div>
-            <label for="anamnesis">Anamnesis</label>
-            <textarea id="anamnesis" name="anamnesis" value={cardInfo.anamnesis} onChange={handleChange} />
+        <label className="next-date" for="nextDate">Proxima cita <input className="card-date" id="nextDate" type="date" name="nextDate" value={cardInfo.nextDate} onChange={handleChange}/></label>
+            
+        <div className="text-areas">
+            <label for="anamnesis">Anamnesis</label><br></br>
+            <textarea id="anamnesis" rows="4" name="anamnesis" value={cardInfo.anamnesis} onChange={handleChange} /><br></br>
 
-            <label for="diagnostico">Diagnostico</label>
-            <textarea id="diagnostico" name="diagnostico" value={cardInfo.diagnostico} onChange={handleChange} />
+            <label for="diagnostico">Diagnostico</label><br></br>
+            <textarea id="diagnostico" rows="4" name="diagnostico" value={cardInfo.diagnostico} onChange={handleChange} /><br></br>
 
-            <label for="tratamiento">Tratamiento</label>
-            <textarea id="tratamiento" name="tratamiento" value={cardInfo.tratamiento} onChange={handleChange} />
+            <label for="tratamiento">Tratamiento</label><br></br>
+            <textarea id="tratamiento" rows="4" name="tratamiento" value={cardInfo.tratamiento} onChange={handleChange} /><br></br>
 
-            <label for="vacunas">Vacunas</label>
-            <textarea id="vacunas" name="vacunas" value={cardInfo.vacunas} onChange={handleChange} />
+            <label for="vacunas">Vacunas</label><br></br>
+            <textarea id="vacunas" rows="4" name="vacunas" value={cardInfo.vacunas} onChange={handleChange} /><br></br>
         </div>
 
         <button onClick={saveCard}>Save</button>

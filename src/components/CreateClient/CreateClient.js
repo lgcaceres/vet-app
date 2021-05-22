@@ -45,7 +45,7 @@ const CreateClient = ()=> {
 
     return(
             <div>
-                <CreateForm data={clientInfo} handleChange ={handleChange} addClient={addClient}/>
+                <CreateForm data={clientInfo} handleChange ={handleChange} save={addClient}/>
                 <button onClick={clear}>Erase</button>
             </div>
     )

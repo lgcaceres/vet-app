@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 
 import firebaseDb from '/home/luis/Desktop/evelin/vet-app/src/firebase.js'
+import CreateForm from '/home/luis/Desktop/evelin/vet-app/src/components/CreateClient/CreateForm'
 
 const SearchForm = () => {
 
@@ -27,10 +28,7 @@ const SearchForm = () => {
     }
 
     const update = ()=> {
-        firebaseDb.child(`clients/${id}`).set({
-            nameClient : clientInfo.nameClient,
-            ageClient : clientInfo.ageClient,
-        },
+        firebaseDb.child(`clients/${id}`).set(clientInfo,
         err => {
             if(err)
                 console.log(err)
@@ -41,10 +39,7 @@ const SearchForm = () => {
 
     return (
         <div>
-            <input type="text" value={clientInfo.nameClient} onChange={handleChange} name="nameClient"/>
-            <input type="text" value={clientInfo.ageClient} onChange={handleChange} name="ageClient"/>
-            <button onClick={update}>Save</button>
-            
+              <CreateForm data={clientInfo} handleChange ={handleChange} save={update}/>    
             
         </div> 
     );

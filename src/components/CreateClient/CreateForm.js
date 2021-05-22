@@ -1,12 +1,12 @@
 import React from 'react'
 import './CreateForm.css'
 
-const CreateForm = ({data, handleChange, addClient})=> {
+const CreateForm = ({data, handleChange, save})=> {
 
 
 
     return(
-        <form onSubmit={addClient}>
+        <form onSubmit={save}>
             <div className="client-data">
                 <label for="nameClient">Nombre </label>
                 <input id="nameClient" type='text' value={data.nameClient} onChange={handleChange} name='nameClient'/>

@@ -15,6 +15,7 @@ function CreateAttentionCard() {
         fc:"",//frecuencia cardiaca
         fr:"",//frecuencia respiratoria
         pulse:"",
+        nextDate:"",
         anamnesis:"",
         diagnostico:"",
         tratamiento:"",

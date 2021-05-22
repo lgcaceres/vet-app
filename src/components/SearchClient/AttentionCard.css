@@ -2,16 +2,30 @@
     font-family: 'Poppins',sans-serif;
     background-color: rgb(163, 234, 236);
     width: 35em;
+    margin: 2em;
+}
+.next-date{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 1em;
 }
 
-.general-info {
+.general-info, .card-info {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 1em;
+    padding: .5em;
 }
 
-input{
+.card-info input{
     width: 2.5em;
 }
 .card-date{
     width: initial;
+}
+
+.text-areas{
+    margin: 1em;
+    display: grid;
 }
