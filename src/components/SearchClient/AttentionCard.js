@@ -2,6 +2,9 @@ import React from 'react';
 import './AttentionCard.css'
 
 function AttentionCard({cardInfo, handleChange, saveCard}) {
+
+    console.log(cardInfo.date);
+
     return (
     <div className="attention-card">
         <div className="general-info">

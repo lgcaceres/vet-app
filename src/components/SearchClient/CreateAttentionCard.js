@@ -6,8 +6,17 @@ import firebaseDb from '/home/luis/Desktop/evelin/vet-app/src/firebase.js'
 
 function CreateAttentionCard() {
 
+    const getDateTime = () => {
+        let tempDate = new Date();
+        let year = tempDate.getFullYear();
+        let month= (tempDate.getMonth()+1) > 10 ?  (tempDate.getMonth()+1) : `0${(tempDate.getMonth()+1)}`
+        let day =tempDate.getDate()> 10 ?  tempDate.getDate() : `0${tempDate.getDate()}`; 
+        let date = `${year}-${month}-${day}`;
+        return date;
+     }
+
     const [cardInfo, setCardInfo] = useState ({
-        date : "",
+        date : getDateTime(),
         nameClient:"",
         namePet:"",
         temperature:"",
@@ -33,15 +42,25 @@ function CreateAttentionCard() {
             else {
                 alert("something is wrong")
             }
-            console.log(data.nameClient);
+         
             setCardInfo(prevState => ({
                 ...prevState,
                 nameClient:data.nameClient,
-                namePet:data.namePet
+                namePet:data.namePet,
             }));
+         
+            
         })
     },[])
 
+    // useEffect(()=>{
+    //     let tempDate = new Date();
+    //     let d = `${tempDate.getFullYear()}-${(tempDate.getMonth()+1)}-${tempDate.getDate()}`;
+    //     setCardInfo(prevState => ({
+    //         ...prevState,
+    //         date:d,
+    //     }));
+    // },[]);
 
     const handleChange = (e)=> {
         const {name , value} = e.target;
@@ -63,11 +82,7 @@ function CreateAttentionCard() {
                 alert("Data saved successfully")
             }})
         
-        // setCardInfo(prevState => ({
-        //     ...prevState,
-        //     namePet:"",
-        //     action:""
-        // }))
+        
 
     }
 

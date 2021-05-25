@@ -31,7 +31,16 @@ const SearchAttentionCard= ()=> {
             <div className="search">
                 {Object.keys(cards).map( key => ( 
                 <div className="card">
+                    <div>
+                        {cards[key].nameClient}
+                    </div>
+                    <div>
                         {cards[key].namePet}
+                    </div>
+                    <div>
+                        {cards[key].date}
+                    </div>
+                        
                         <Link to={{pathname:`${url}/${key}`,state:{client:id}}}>Edit</Link>
                 </div> ))}    
             </div>  
