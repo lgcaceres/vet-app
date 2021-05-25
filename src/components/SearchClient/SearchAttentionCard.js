@@ -6,6 +6,8 @@ import firebaseDb from '/home/luis/Desktop/evelin/vet-app/src/firebase.js'
 import EditCard from './EditCard'
 
 import './SearchAttentionCard.css'
+import EditImg from'/home/luis/Desktop/evelin/vet-app/src/images/edit.png'
+import DeleteImg from'/home/luis/Desktop/evelin/vet-app/src/images/delete.png'
 
 const SearchAttentionCard= ()=> {
 
@@ -25,6 +27,10 @@ const SearchAttentionCard= ()=> {
         })
     },[]);
 
+    const deleteCard = (e) => {
+        const {name} =e.target;
+        console.log(name);
+    }
 
     return (
         <div className="container">
@@ -41,7 +47,8 @@ const SearchAttentionCard= ()=> {
                         {cards[key].date}
                     </div>
                         
-                        <Link to={{pathname:`${url}/${key}`,state:{client:id}}}>Edit</Link>
+                        <Link to={{pathname:`${url}/${key}`,state:{client:id}}}><img src={EditImg}/></Link>
+                        <button className="delete-btn"  name={key} onClick={deleteCard}><img src={DeleteImg}/></button>
                 </div> ))}    
             </div>  
           

@@ -22,6 +22,17 @@
     margin :auto ;
 }
 
+img{
+    filter: brightness(1.1);
+    mix-blend-mode: multiply;
+    width: 1.7em;
+    height: 1.7em;
+}
+.delete-btn{
+    border: none;
+    background: none;
+}
+
 
 
 
