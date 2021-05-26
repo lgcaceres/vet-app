@@ -1,13 +1,14 @@
 .attention-card {
     font-family: 'Poppins',sans-serif;
     background-color: rgb(163, 234, 236);
-    width: 35em;
+    width: 37em;
     margin: 2em;
 }
 .next-date{
     display: flex;
-    justify-content: flex-end;
-    margin-right: 1em;
+    margin-top: 1.5em;
+    justify-content: flex-end;    
+    margin-right: .5em;
 }
 
 .general-info, .card-info {
@@ -17,6 +18,15 @@
     margin-top: 1em;
     padding: .5em;
 }
+
+.card-name-pet {
+    width: 80px;
+}
+ .card-name-client {
+     font-size: 1.1em;
+     font-weight: bold;
+     margin-top: .3em;
+ }
 
 .card-info input{
     width: 2.5em;
@@ -28,4 +38,8 @@
 .text-areas{
     margin: 1em;
     display: grid;
+}
+
+label input{
+    margin-left: .5em;
 }

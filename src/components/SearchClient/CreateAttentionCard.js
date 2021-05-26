@@ -53,14 +53,6 @@ function CreateAttentionCard() {
         })
     },[])
 
-    // useEffect(()=>{
-    //     let tempDate = new Date();
-    //     let d = `${tempDate.getFullYear()}-${(tempDate.getMonth()+1)}-${tempDate.getDate()}`;
-    //     setCardInfo(prevState => ({
-    //         ...prevState,
-    //         date:d,
-    //     }));
-    // },[]);
 
     const handleChange = (e)=> {
         const {name , value} = e.target;

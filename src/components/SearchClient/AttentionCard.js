@@ -10,7 +10,7 @@ function AttentionCard({cardInfo, handleChange, saveCard}) {
         <div className="general-info">
             <input className="card-date" type="date" name="date" value={cardInfo.date} onChange={handleChange}/>
             <div className="card-name-client">{cardInfo.nameClient}</div>
-            <div className="card-name-pet">{cardInfo.namePet}</div>
+            <input className="card-name-pet" type="text" name="namePet" value={cardInfo.namePet} onChange={handleChange}/>
         </div>
         <div className="card-info">
             <label for="temperature">Tº</label>
@@ -24,7 +24,10 @@ function AttentionCard({cardInfo, handleChange, saveCard}) {
             <label for="pulse">Pulso</label>
             <input id="pulse" name="pulse" value={cardInfo.pulse} onChange={handleChange}/>
         </div>
-        <label className="next-date" for="nextDate">Proxima cita <input className="card-date" id="nextDate" type="date" name="nextDate" value={cardInfo.nextDate} onChange={handleChange}/></label>
+        <label className="next-date" for="nextDate">Proxima cita 
+        <input className="card-date" id="nextDate" type="date" name="nextDate" value={cardInfo.nextDate} onChange={handleChange}/>
+        </label>
+        
             
         <div className="text-areas">
             <label for="anamnesis">Anamnesis</label><br></br>
