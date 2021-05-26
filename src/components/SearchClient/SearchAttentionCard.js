@@ -15,6 +15,8 @@ const SearchAttentionCard= ()=> {
     const {path, url} = useRouteMatch();
 
     const [cards, setCards] = useState ({});
+    const [cardDeleted, setCardDeleted] = useState('');
+
 
     useEffect(()=> {
         firebaseDb.child(`cards/${id}`).on('value',snapshot => {
@@ -27,10 +29,11 @@ const SearchAttentionCard= ()=> {
         })
     },[]);
 
-    const deleteCard = (e) => {
-        const {name} =e.target;
-        console.log(name);
-    }
+    useEffect(()=> {
+        if(cardDeleted !== ''){
+            firebaseDb.child(`cards/${id}/${cardDeleted}`).remove();
+        }
+    },[cardDeleted])
 
     return (
         <div className="container">
@@ -48,7 +51,7 @@ const SearchAttentionCard= ()=> {
                     </div>
                         
                         <Link to={{pathname:`${url}/${key}`,state:{client:id}}}><img src={EditImg}/></Link>
-                        <button className="delete-btn"  name={key} onClick={deleteCard}><img src={DeleteImg}/></button>
+                        <button className="delete-btn"  onClick={(e) => setCardDeleted(key)}><img src={DeleteImg}/></button>
                 </div> ))}    
             </div>  
           

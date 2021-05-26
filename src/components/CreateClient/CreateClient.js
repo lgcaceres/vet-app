@@ -17,9 +17,6 @@ const CreateClient = ()=> {
         breed:'',
     })
     
-    const clear= ()=> {
-        firebaseDb.child('clients').remove();
-    }
 
     const handleChange = (e)=> {
         const {value , name} = e.target;
@@ -30,7 +27,7 @@ const CreateClient = ()=> {
     }
 
     const addClient= (e)=> {
-        //e.preventDefault();
+        e.preventDefault();
         
         firebaseDb.child('clients').push(clientInfo,
         err => {
@@ -46,7 +43,6 @@ const CreateClient = ()=> {
     return(
             <div>
                 <CreateForm data={clientInfo} handleChange ={handleChange} save={addClient}/>
-                <button onClick={clear}>Erase</button>
             </div>
     )
 }
