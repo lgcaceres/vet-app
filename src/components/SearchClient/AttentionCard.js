@@ -43,7 +43,7 @@ function AttentionCard({cardInfo, handleChange, saveCard}) {
             <textarea id="vacunas" rows="4" name="vacunas" value={cardInfo.vacunas} onChange={handleChange} /><br></br>
         </div>
 
-        <button onClick={saveCard}>Save</button>
+        <button className="save-btn" onClick={saveCard}>Save</button>
 
         
     </div>
