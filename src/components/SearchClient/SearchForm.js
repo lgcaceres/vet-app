@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 
-import firebaseDb from '/home/luis/Desktop/evelin/vet-app/src/firebase.js'
-import CreateForm from '/home/luis/Desktop/evelin/vet-app/src/components/CreateClient/CreateForm'
+import firebaseDb from '../../firebase'
+import CreateForm from '../CreateClient/CreateForm'
 
 const SearchForm = () => {
 

@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Route, Switch, useParams, useRouteMatch } from 'react-router';
 import { Link } from 'react-router-dom';
 
-import firebaseDb from '/home/luis/Desktop/evelin/vet-app/src/firebase.js'
+import firebaseDb from '../../firebase'
 import EditCard from './EditCard'
 
 import './SearchAttentionCard.css'
-import EditImg from'/home/luis/Desktop/evelin/vet-app/src/images/edit.png'
-import DeleteImg from'/home/luis/Desktop/evelin/vet-app/src/images/delete.png'
+import EditImg from'../../images/edit.png'
+import DeleteImg from'../../images/edit.png'
 
 const SearchAttentionCard= ()=> {
 

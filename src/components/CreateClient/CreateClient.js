@@ -1,5 +1,5 @@
 import React, { useState }  from 'react';
-import firebaseDb from '/home/luis/Desktop/evelin/vet-app/src/firebase.js'
+import firebaseDb from '../../firebase'
 
 import CreateForm from './CreateForm'
 

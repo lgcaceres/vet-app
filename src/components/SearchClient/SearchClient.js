@@ -1,10 +1,10 @@
 import React,{useState, useEffect} from 'react';
-import firebaseDb from '/home/luis/Desktop/evelin/vet-app/src/firebase.js'
+import firebaseDb from '../../firebase'
 
 import {Link} from 'react-router-dom';
 import './SearchClient.css'
-import addCard from'/home/luis/Desktop/evelin/vet-app/src/images/add.png'
-import searchCard from'/home/luis/Desktop/evelin/vet-app/src/images/search.png'
+import addCard from'../../images/add.png'
+import searchCard from'../../images/search.png'
 
 
 const SearchClient = () => {

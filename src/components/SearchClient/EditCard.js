@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router';
 import AttentionCard from './AttentionCard';
-import firebaseDb from '/home/luis/Desktop/evelin/vet-app/src/firebase.js'
+import firebaseDb from '../../firebase'
 
 const EditCard =()=> {
 
