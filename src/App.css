@@ -5,6 +5,7 @@ header {
   font-family: 'Poppins',sans-serif;
   display: flex;
   justify-content: space-between;
+  height: 10vh;
 }
  
 header h1 {
